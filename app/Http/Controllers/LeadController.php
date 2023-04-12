@@ -835,6 +835,13 @@ class LeadController extends Controller
                 'summery' => $summery,
                 'userid' => $userid
             ]);
+            DB::table('notifications')
+            ->insert([
+                "date_preference"=>1,
+                "notify_user_id" => Auth::user()->id,
+                "notification_description" => $summery,
+                "notification_date" => $notificationdate
+            ]);
 
             return back()->with('success','Followup Added Successfully');
     }
@@ -1383,6 +1390,14 @@ class LeadController extends Controller
         $assign = DB::table('leads')->where('leadid',$leadid)->update(array(
             'assign_userid'=>$username,
         ));
+
+        DB::table('notifications')
+        ->insert([
+            "date_preference"=>0,
+            "notify_user_id" => $username,
+            "notification_description" => "New Lead Assigned for admin ".$leadid,
+            "notification_date" => date("Y-m-d")
+        ]);
 
         return back()->with('success','Lead Assigned Successfully..');
     }

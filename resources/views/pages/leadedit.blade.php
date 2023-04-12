@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-lg-6 text-right">
                         {{-- <a href="/create-invoice" class="btn btn-success btn-outline fancy-button btn-0" style="font-size:16px;">Create Invoice</a> --}}
-                <button class="btn btn-info btn-outline fancy-button btn-0" style="font-size:16px;">Back</button>
+                <button class="btn btn-info btn-outline fancy-button btn-0" style="font-size:16px;" onclick="history.back()">Back</button>
                     </div>
                 </div>
 

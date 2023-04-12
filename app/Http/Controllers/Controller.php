@@ -19,7 +19,7 @@ class Controller extends BaseController
         $date = $request->today;
 
 
-        $notification = DB::table('follow_ups')
+        $notification = DB::table('notifications')
         ->select('*')
         ->where('notification_date','=',$date)
         ->get();

@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <label>Description</label>
+                                    <label>Description<span style="color:red">*</span></label>
                                     <table class="table table-borderless " >
                                         <tbody id="appendstageparent">
                                         <tr class="appendstage">

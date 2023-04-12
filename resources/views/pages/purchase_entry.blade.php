@@ -89,7 +89,7 @@
 
                                         </td>
                                         <td >
-                                            <input type="number" class="form-control " name="requestsn[]" placeholder="S.No">
+                                            <input type="number" class="form-control " name="requestsn[]" placeholder="S.No" readonly>
                                         </td>
                                         <td >
                                             <input type="number" class="form-control purchaseqty" name="qty[]" placeholder="Qty">

@@ -47,9 +47,10 @@
                     </thead>
                     <tbody>
                         @if($purchaseitem)
+                        @php $i=1 @endphp
                             @foreach ($purchaseitem as $purchase)
                                 <tr>
-                                    <td>{{ $purchase->id }}</td>
+                                    <td>@php echo $i++ @endphp</td>
                                     <td>
                                         {{-- {{ $purchase->productname }} --}}
                                         @if ($products = App\Models\approvedproduct::where('id',$purchase->productname)->first())

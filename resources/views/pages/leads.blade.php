@@ -195,14 +195,14 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mobile Number <span style="color:red">*</span></label>
-                        <input type="text" class="form-control" name="mobilenumber" id="mobilenum" aria-describedby="emailHelp" placeholder="Enter Mobile Number" required>
+                        <input type="text" class="form-control" name="mobilenumber" id="mobilenum" aria-describedby="emailHelp" placeholder="Enter Mobile Number" required value="+91-">
                         <span id="mobile-error" style="color:red"></span>
                       </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-mail <span style="color:red">*</span></label>
-                        <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        <input type="email" class="form-control" name="email" id="email1" aria-describedby="emailHelp" placeholder="Enter email" required>
                         <span id="email-error" style="color:red"></span>
                       </div>
                   </div>
@@ -535,9 +535,9 @@
               <label>Import File</label>
               <input type="file" class="form-control" name="importfile" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
             </div>
-            <div class="alert alert-success" role="alert">
+            {{-- <div class="alert alert-success" role="alert">
                 Note : Follow the Leadid Format Ex : LEAD0001
-            </div>
+            </div> --}}
         </div>
         <div class="modal-footer">
             <a href="/leadimport.csv" download class="btn btn-success">Download Sample</a>

@@ -63,12 +63,12 @@
                                 <thead>
 
                                     {{-- <th>S.No</th> --}}
-                                    <th>Products Description </th>
-                                    <th>Request S.No </th>
-                                    <th>Quantity</th>
-                                    <th>Unit</th>
-                                    <th>Rate</th>
-                                    <th>Amount</th>
+                                    <th>Products Description &nbsp;<span style="color:red">*</span> </th>
+                                    <th>Request S.No &nbsp;<span style="color:red">*</span></th>
+                                    <th>Quantity &nbsp;<span style="color:red">*</span></th>
+                                    <th>Unit &nbsp;<span style="color:red">*</span></th>
+                                    <th>Rate &nbsp;<span style="color:red">*</span></th>
+                                    <th>Amount &nbsp;<span style="color:red">*</span></th>
                                     {{-- <th>Add</th> --}}
 
                                 </thead>
@@ -82,20 +82,20 @@
                                                 <option>-- Choose Description --</option>
                                             </select> --}}
                                             <input type="hidden" class="proddesc" name="productdesc">
-                                            <select name="" class="form-control prodesc" name="" id="">
-                                                <option>-- Choose Description --</option>
+                                            <select name="" class="form-control prodesc" name="" id="" required>
+                                                <option value="">-- Choose Description --</option>
                                             </select>
                                         </td>
                                         <td>
                                             <input type="text" class="form-control Sno sno" name="requestsn"
-                                                placeholder="S.No" readonly>
+                                                placeholder="S.No" readonly required>
                                         </td>
                                         <td>
                                             <input type="number" class="form-control qttyy purchaseqty" name="qty"
-                                                placeholder="Qty">
+                                                placeholder="Qty" required>
                                         </td>
                                         <td style="width:100px">
-                                            <select class="form-control" name="unit">
+                                            <select class="form-control" name="unit" required>
                                                 <option value="">Choose</option>
                                                 <option value="Kg">Kg</option>
                                                 <option value="Nos">Nos</option>
@@ -103,10 +103,10 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control requestprice" name="price" readonly>
+                                            <input type="text" class="form-control requestprice" name="price" readonly required>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control amt2" name="amt" readonly>
+                                            <input type="text" class="form-control amt2" name="amt" readonly required>
                                         </td>
 
                                         {{-- <td>

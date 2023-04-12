@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
 
         $date = date('Y-m-d');
 
-        $getdate = DB::table('follow_ups')
+        $getdate = DB::table('notifications')
         ->select('*')
         ->where('notification_date','=',$date)
         ->count();

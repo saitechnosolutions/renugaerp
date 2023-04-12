@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseOrderController extends Controller
 {
@@ -115,8 +116,14 @@ class PurchaseOrderController extends Controller
             "cgst"=>$txtcgst,
             "sgst"=>$txtsgst,
             "totalamt"=>$finalamt,
+        ]);
 
-
+        DB::table('notifications')
+        ->insert([
+            "date_preference"=>1,
+            "notify_user_id" => Auth::user()->id,
+            "notification_description" => "Today Due date for Order ID ".$order_no,
+            "notification_date" => $delivery_date
         ]);
 
      $productdesc = $request->productdesc;

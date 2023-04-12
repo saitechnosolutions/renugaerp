@@ -1678,7 +1678,7 @@ today = yyyy + '-' + mm + '-' + dd;
                 $.each(response,function(key, item){
 
 $(".notification-scroll").append(
-    '<div class="dropdown-item"> <div class="media server-log"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg> <div class="media-body"> <div class="data-info"><h6 class="">'+item.leadid+'</h6> <p class="">'+item.summery+'</p></div></div></div></div>'
+    '<div class="dropdown-item"> <div class="media server-log"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg> <div class="media-body"> <div class="data-info"> <p class="">'+item.notification_description+'</p></div></div></div></div>'
 )
 });
             // }
@@ -4187,8 +4187,8 @@ $(document).on("click", ".removestage", function () {
                     $.each(data,function(key, item){
                         $('.purchaseentrytable tbody').append(
                             '<tr>\
-                            <td><input type="text" class="form-control" name="itemdescription[]" value="'+item.descriptions+'"><input type="hidden" class="descriptionid" name="descriptionid[]" value="'+item.itemdescription+'"></td>\
-                            <td><input type="number" class="form-control" name="reqsno[]" value="'+item.requestsno+'"></td>\
+                            <td><input type="text" readonly class="form-control" name="itemdescription[]" value="'+item.descriptions+'"><input type="hidden" class="descriptionid" name="descriptionid[]" value="'+item.itemdescription+'"></td>\
+                            <td><input type="number" readonly class="form-control" name="reqsno[]" value="'+item.requestsno+'"></td>\
                             <td><input type="number" class="form-control requestprice " name="price[]" value=""><input type="hidden" name="porate" class="porate" value="'+item.price+'"><span class="text-danger" id="rateerrortxt"></span></td>\
                             <td><input type="number" class="form-control purchaseqty" name="qty[]" value="" max="'+item.pending_count+'"></td>\
                             <td><input type="number" class="form-control amt2" name="amt[]" value=""></td>\
@@ -4859,8 +4859,31 @@ if (result.isConfirmed) {
     }
 
 });
+$("#email1").blur(function(){
+    var lettersRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+var email = $(this).val();
+var out = lettersRegex.test(email);
+
+if(email.length != 0)
+{
+    if(out == false)
+    {
+        $("#email-error").text("Email format error");
+        $(this).focus();
+    }
+    else
+    {
+        $("#email-error").text("");
+    }
+}
+else
+{
+    $("#email-error").text("");
+}
+});
 $("#email").blur(function(){
+    // alert("test");
     var lettersRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     var email = $(this).val();
@@ -4886,7 +4909,8 @@ $("#email").blur(function(){
 });
 
 $("#mobilenum").blur(function(){
-    var lettersRegex = /^[0-9]{10}$/;
+    // var lettersRegex = /^[0-9]{12}$/;
+    var lettersRegex = /^\+91-\d{10}$/;
 
     var mobilenum = $(this).val();
     var out = lettersRegex.test(mobilenum);
@@ -4935,4 +4959,31 @@ $("#gst").blur(function(){
     }
 
 });
+
+
+$("#password").blur(function(){
+    var lettersRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    var password = $(this).val();
+    var out = lettersRegex.test(password);
+
+    if(password.length != 0)
+    {
+        if(out == false)
+        {
+            $("#password-error").text("8 Digit mandatory 1 Letter Capital 1 Small 1 Special Characted");
+            $(this).focus();
+        }
+        else
+        {
+            $("#password-error").text("");
+        }
+    }
+    else
+    {
+        $("#password-error").text("");
+    }
+
+});
+
 </script>
